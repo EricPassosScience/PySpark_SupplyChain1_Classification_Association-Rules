@@ -44,7 +44,7 @@ Las reglas de asociación ayudan a descubrir todas estas relaciones entre grande
 En nuestro problema, utilizaremos la extracción de reglas de asociación para comprender mejor los datos y luego seleccionaremos las mejores variables para crear un modelo predictivo. Vamos a crear un marco de datos que asocie al cliente con todos los productos que ha comprado.
 Para ello utilizaremos el algoritmo principal de extracción de Reglas de Asociación con PySpark el "Frequent Pattern Mining".
 
-Documentacion -> https://spark.apache.org/docs/latest/ml-frequent-pattern-mining.html
+Documentación -> https://spark.apache.org/docs/latest/ml-frequent-pattern-mining.html
 ## Métricas de evaluación para el algoritmo "Frequent Pattern Mining" de PySpark
 - Support (Apoyo): Esta medida da una idea de la frecuencia de un conjunto de artículos en todas las transacciones. Ejemplos: Considere itemset1 = {Pan, Mantequilla} y itemset2 = {Pan, Champú}. Habrá muchas más transacciones que contengan pan y mantequilla que que contengan pan y champú. Por lo tanto, itemset1 generalmente tendrá mayor soporte que itemset2.
 Matemáticamente, el soporte es la fracción del número total de transacciones en las que se produce el conjunto de elementos. El valor de soporte nos ayuda a identificar lo que vale la pena considerar para un análisis más detallado.
@@ -57,3 +57,10 @@ No importa lo que tengas en el antecedente para un consecuente tan frecuente. La
 Para reformular, la elevación es el aumento en la probabilidad de tener {Y} en el carrito con el conocimiento de que {X} está presente sobre la probabilidad de tener {Y} en el carrito sin ningún conocimiento de la presencia de {X}.
 En los casos en que X realmente lleva a Y en el carrito, el valor de elevación será mayor que 1. Un valor de elevación menor que 1 muestra que tener X en el carrito no aumenta las posibilidades de que Y ocurra en el carrito, a pesar de que la regla muestra un alto valor de confianza.
 Un valor de elevación superior a 1 atestigua la alta asociación entre Y y X. Cuanto mayor sea el valor de elevación, mayores serán las posibilidades de comprar Y si el cliente ya ha comprado X. La elevación es la medida que ayudará a los gerentes a decidir sobre la colocación del producto. en el pasillo o en el sitio de comercio electrónico.
+
+## Modelo Predictivo
+Finalmente, usamos el algoritmo "Decision Tree Classifier" de PySpark para hacer las predicciones.
+
+Documentación -> https://spark.apache.org/docs/latest/ml-classification-regression.html#decision-tree-classifier
+
+Documentación de métricas de evaluación -> https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.ml.evaluation.MulticlassClassificationEvaluator.html
